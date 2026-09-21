@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://ikonstas70.github.io/information-security/ccie-enterprise-infrastructure-v1-1-blueprint.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCIE Enterprise Infrastructure v1.1 — Exam Blueprint</title>
+<meta name="description" content="Full exam topics outline for the CCIE Enterprise Infrastructure v1.1 lab exam, with domain weighting, kept as a personal study reference.">
+<meta name="author" content="Ioannis Alexander Konstas">
+<link rel="stylesheet" href="/information-security/style.css">
+<style>
+  .domain-weight { color: var(--accent); font-family: var(--mono); font-size: 0.85rem; }
+  .outline ul { list-style: none; margin: 6px 0 6px 18px; padding: 0; }
+  .outline > ul { margin-left: 0; }
+  .outline li { margin: 4px 0; }
+  .outline li > code { color: var(--accent-dim); font-size: 0.78rem; margin-right: 8px; }
+  .source-note { color: var(--fg-dim); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 40px; padding-top: 16px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZK50T0JFT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-BZK50T0JFT");</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="/information-security/">Information Security<em>.</em></a>
+    <div class="tagline">CCIE Enterprise Infrastructure &middot; CISSP &middot; Study Notes &amp; Review</div>
+    <div class="rule"></div>
+  </header>
+
+  <main>
+    <span class="tag">CCIE</span>
+    <span class="tag">Exam Blueprint</span>
+    <h1>CCIE Enterprise Infrastructure v1.1 — Exam Topics</h1>
+    <p class="meta">Reference &middot; Ioannis Alexander Konstas</p>
+
+    <p>The CCIE Enterprise Infrastructure (v1.1) Lab Exam is an eight-hour, hands-on exam that requires a candidate to plan, design, operate, and optimize dual-stack solutions (IPv4 and IPv6) for complex enterprise networks. Candidates are expected to program and automate the network within the exam, per the topics below.</p>
+    <p>The following topics are general guidelines for the content likely to be included on the exam. Knowledge, skills, and abilities on these topics are tested throughout the entire network lifecycle, unless explicitly specified otherwise.</p>
+
+    <div class="outline">
+
+    <h2>1.0 Network Infrastructure <span class="domain-weight">30%</span></h2>
+
+    <h3>1.1 Switched campus</h3>
+    <ul>
+      <li><code>1.1.a</code>Switch administration
+        <ul>
+          <li>Managing MAC address table</li>
+          <li>Errdisable recovery</li>
+          <li>L2 MTU</li>
+        </ul>
+      </li>
+      <li><code>1.1.b</code>Layer 2 protocols
+        <ul>
+          <li>CDP, LLDP</li>
+          <li>UDLD</li>
+        </ul>
+      </li>
+      <li><code>1.1.c</code>VLAN technologies
+        <ul>
+          <li>Access ports</li>
+          <li>Trunk ports (802.1Q)</li>
+          <li>Native VLAN</li>
+          <li>Manual VLAN pruning</li>
+          <li>Normal range and extended range VLANs</li>
+          <li>Voice VLAN</li>
+        </ul>
+      </li>
+      <li><code>1.1.d</code>EtherChannel
+        <ul>
+          <li>LACP, static</li>
+          <li>Layer 2, Layer 3</li>
+          <li>Load balancing</li>
+          <li>EtherChannel misconfiguration guard</li>
+          <li>Identify multichassis EtherChannel use cases</li>
+        </ul>
+      </li>
+      <li><code>1.1.e</code>Spanning Tree Protocol
+        <ul>
+          <li>PVST+, Rapid PVST+, MST</li>
+          <li>Switch priority, port priority, tuning port/path cost, STP timers</li>
+          <li>PortFast, BPDU guard, BPDU filter</li>
+          <li>Loop guard, root guard</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>1.2 Routing concepts</h3>
+    <ul>
+      <li><code>1.2.a</code>Administrative distance</li>
+      <li><code>1.2.b</code>Static routing (unicast, multicast)</li>
+      <li><code>1.2.c</code>Policy-based routing</li>
+      <li><code>1.2.d</code>VRF-Lite</li>
+      <li><code>1.2.e</code>VRF-aware routing with BGP, EIGRP, OSPF, and static</li>
+      <li><code>1.2.f</code>Route leaking between VRFs using route maps and VASI</li>
+      <li><code>1.2.g</code>Route filtering with BGP, EIGRP, OSPF, and static</li>
+      <li><code>1.2.h</code>Redistribution between BGP, EIGRP, OSPF, and static</li>
+      <li><code>1.2.i</code>Routing protocol authentication</li>
+      <li><code>1.2.j</code>Bidirectional Forwarding Detection</li>
+      <li><code>1.2.k</code>L3 MTU</li>
+    </ul>
+
+    <h3>1.3 EIGRP</h3>
+    <ul>
+      <li><code>1.3.a</code>Adjacencies</li>
+      <li><code>1.3.b</code>Best path selection
+        <ul>
+          <li>Reported distance, computed distance, feasible distance, feasibility condition, successor, feasible successor</li>
+          <li>Classic metrics and wide metrics</li>
+        </ul>
+      </li>
+      <li><code>1.3.c</code>Operations
+        <ul>
+          <li>General operations</li>
+          <li>Topology table</li>
+          <li>Packet types</li>
+          <li>Stuck-in-active</li>
+          <li>Graceful shutdown</li>
+        </ul>
+      </li>
+      <li><code>1.3.d</code>EIGRP named mode</li>
+      <li><code>1.3.e</code>Optimization, convergence, and scalability
+        <ul>
+          <li>Query propagation boundaries</li>
+          <li>Leak-map with summary routes</li>
+          <li>EIGRP stub with leak map</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>1.4 OSPF (v2 and v3)</h3>
+    <ul>
+      <li><code>1.4.a</code>Adjacencies</li>
+      <li><code>1.4.b</code>OSPFv3 address family support</li>
+      <li><code>1.4.c</code>Network types, area types</li>
+      <li><code>1.4.d</code>Path preference</li>
+      <li><code>1.4.e</code>Operations
+        <ul>
+          <li>General operations</li>
+          <li>Graceful shutdown</li>
+          <li>GTSM (Generic TTL Security Mechanism)</li>
+        </ul>
+      </li>
+      <li><code>1.4.f</code>Optimization, convergence, and scalability
+        <ul>
+          <li>Metrics</li>
+          <li>LSA throttling, SPF tuning</li>
+          <li>Stub router</li>
+          <li>Prefix suppression</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>1.5 BGP</h3>
+    <ul>
+      <li><code>1.5.a</code>IBGP and EBGP peer relations
+        <ul>
+          <li>Peer groups, templates</li>
+          <li>Active, passive</li>
+          <li>Timers</li>
+          <li>Dynamic neighbors</li>
+          <li>4-byte AS numbers</li>
+          <li>Private AS numbers</li>
+        </ul>
+      </li>
+      <li><code>1.5.b</code>Path selection
+        <ul>
+          <li>Attributes</li>
+          <li>Best path selection algorithm</li>
+          <li>Load balancing</li>
+        </ul>
+      </li>
+      <li><code>1.5.c</code>Routing policies
+        <ul>
+          <li>Attribute manipulation</li>
+          <li>Conditional advertisement</li>
+          <li>Outbound route filtering</li>
+          <li>Standard and extended communities</li>
+          <li>Multihoming</li>
+        </ul>
+      </li>
+      <li><code>1.5.d</code>AS path manipulations
+        <ul>
+          <li>local-as, allowas-in, remove-private-as</li>
+          <li>AS path prepending</li>
+          <li>Regular expressions</li>
+        </ul>
+      </li>
+      <li><code>1.5.e</code>Convergence and scalability
+        <ul>
+          <li>Route reflectors</li>
+          <li>Aggregation, as-set</li>
+        </ul>
+      </li>
+      <li><code>1.5.f</code>Other BGP features such as soft reconfiguration and route refresh</li>
+    </ul>
+
+    <h3>1.6 Multicast</h3>
+    <ul>
+      <li><code>1.6.a</code>Layer 2 multicast
+        <ul>
+          <li>IGMPv2, IGMPv3</li>
+          <li>IGMP snooping, PIM snooping</li>
+          <li>IGMP querier</li>
+          <li>IGMP filter</li>
+          <li>MLD</li>
+        </ul>
+      </li>
+      <li><code>1.6.b</code>Reverse path forwarding check</li>
+      <li><code>1.6.c</code>PIM
+        <ul>
+          <li>Sparse mode</li>
+          <li>Static RP, BSR, Auto-RP</li>
+          <li>Group-to-RP mapping</li>
+          <li>Source Specific Multicast</li>
+          <li>Multicast boundary, RP announcement filter</li>
+          <li>PIMv6 anycast RP</li>
+          <li>IPv4 anycast RP using MSDP</li>
+          <li>Multicast multipath</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>2.0 Software-Defined Infrastructure <span class="domain-weight">25%</span></h2>
+
+    <h3>2.1 Cisco SD-Access</h3>
+    <ul>
+      <li><code>2.1.a</code>Underlay
+        <ul>
+          <li>Manual</li>
+          <li>LAN automation / PnP</li>
+          <li>Device discovery and device management</li>
+          <li>Extended nodes / policy extended nodes</li>
+        </ul>
+      </li>
+      <li><code>2.1.b</code>Overlay
+        <ul>
+          <li>LISP, BGP control planes</li>
+          <li>VXLAN data plane</li>
+          <li>Cisco TrustSec policy plane</li>
+          <li>L2 flooding</li>
+          <li>Native multicast</li>
+        </ul>
+      </li>
+      <li><code>2.1.c</code>Fabric design
+        <ul>
+          <li>Single-site campus</li>
+          <li>Multisite</li>
+          <li>Fabric in a box</li>
+        </ul>
+      </li>
+      <li><code>2.1.d</code>Fabric deployment
+        <ul>
+          <li>Host onboarding</li>
+          <li>Authentication templates</li>
+          <li>Port configuration</li>
+          <li>Multisite remote border</li>
+          <li>Border priority</li>
+          <li>Adding devices to fabric</li>
+        </ul>
+      </li>
+      <li><code>2.1.e</code>Fabric border handoff
+        <ul>
+          <li>SDA, SDWAN, IP transits</li>
+          <li>Peer device (Fusion router)</li>
+          <li>Layer 2 border handoff</li>
+        </ul>
+      </li>
+      <li><code>2.1.f</code>Segmentation
+        <ul>
+          <li>Macro segmentation using virtual networks</li>
+          <li>Micro-level segmentation using SGTs and SGACLs</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>2.2 Cisco SD-WAN</h3>
+    <ul>
+      <li><code>2.2.a</code>Controller architecture
+        <ul>
+          <li>Management plane (vManage)</li>
+          <li>Orchestration plane (vBond)</li>
+          <li>Control plane (vSmart)</li>
+        </ul>
+      </li>
+      <li><code>2.2.b</code>SD-WAN underlay
+        <ul>
+          <li>WAN Cloud Edge deployment (AWS, Azure, Google Cloud)</li>
+          <li>WAN Edge deployment (hardware)</li>
+          <li>Greenfield, brownfield, and hybrid deployments</li>
+          <li>System configuration (system IP, site ID, org name, vBond address)</li>
+          <li>Transport configuration (underlay and tunnel interfaces, allowed services, TLOC extension)</li>
+        </ul>
+      </li>
+      <li><code>2.2.c</code>Overlay Management Protocol (OMP)
+        <ul>
+          <li>OMP attributes</li>
+          <li>IPsec key management</li>
+          <li>Route aggregation</li>
+          <li>Redistribution</li>
+          <li>Additional features (BGP AS path propagation, SDA integration)</li>
+        </ul>
+      </li>
+      <li><code>2.2.d</code>Configuration templates
+        <ul>
+          <li>CLI templates</li>
+          <li>Feature templates</li>
+          <li>Device templates</li>
+        </ul>
+      </li>
+      <li><code>2.2.e</code>Centralized policies
+        <ul>
+          <li>Data policies</li>
+          <li>Application-aware routing policies</li>
+          <li>Control policies</li>
+        </ul>
+      </li>
+      <li><code>2.2.f</code>Localized policies
+        <ul>
+          <li>Access lists</li>
+          <li>Route policies</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>3.0 Transport Technologies and Solutions <span class="domain-weight">15%</span></h2>
+
+    <h3>3.1 Static point-to-point GRE tunnels</h3>
+
+    <h3>3.2 MPLS</h3>
+    <ul>
+      <li><code>3.2.a</code>Operations
+        <ul>
+          <li>Label stack, LSR, LSP</li>
+          <li>LDP</li>
+          <li>MPLS ping, MPLS traceroute</li>
+        </ul>
+      </li>
+      <li><code>3.2.b</code>L3VPN
+        <ul>
+          <li>PE-CE routing using BGP</li>
+          <li>Basic MP-BGP VPNv4/VPNv6</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>3.3 DMVPN</h3>
+    <ul>
+      <li><code>3.3.a</code>Troubleshoot DMVPN Phase 3 with dual hub
+        <ul>
+          <li>NHRP</li>
+          <li>IPsec/IKEv2 using preshared key</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>4.0 Infrastructure Security and Services <span class="domain-weight">15%</span></h2>
+
+    <h3>4.1 Device security on Cisco IOS XE</h3>
+    <ul>
+      <li><code>4.1.a</code>Control plane policing and protection</li>
+      <li><code>4.1.b</code>AAA</li>
+    </ul>
+
+    <h3>4.2 Network security</h3>
+    <ul>
+      <li><code>4.2.a</code>Switch security features
+        <ul>
+          <li>VACL, PACL</li>
+          <li>Storm control</li>
+          <li>DHCP snooping, DHCP option 82</li>
+          <li>IP Source Guard</li>
+          <li>Dynamic ARP Inspection</li>
+          <li>Port security</li>
+        </ul>
+      </li>
+      <li><code>4.2.b</code>Router security features
+        <ul>
+          <li>IPv6 traffic filters</li>
+          <li>IPv4 access control lists</li>
+          <li>Unicast Reverse Path Forwarding</li>
+        </ul>
+      </li>
+      <li><code>4.2.c</code>IPv6 infrastructure security features
+        <ul>
+          <li>RA Guard</li>
+          <li>DHCP Guard</li>
+          <li>Binding table</li>
+          <li>Device tracking</li>
+          <li>ND Inspection/Snooping</li>
+          <li>Source Guard</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>4.3 System management</h3>
+    <ul>
+      <li><code>4.3.a</code>Device management
+        <ul>
+          <li>Console and VTY</li>
+          <li>SSH, SCP</li>
+          <li>RESTCONF, NETCONF</li>
+        </ul>
+      </li>
+      <li><code>4.3.b</code>SNMP (v2c, v3)</li>
+      <li><code>4.3.c</code>Logging
+        <ul>
+          <li>Local logging, syslog, debugs, conditional debugs</li>
+          <li>Configuration change notification and logging</li>
+          <li>Timestamps</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>4.4 Quality of Service</h3>
+    <ul>
+      <li><code>4.4.a</code>Differentiated Services architecture</li>
+      <li><code>4.4.b</code>Classification, trust boundary</li>
+      <li><code>4.4.c</code>Network Based Application Recognition (NBAR)</li>
+      <li><code>4.4.d</code>Marking DSCP values in IPv4 and IPv6 headers</li>
+      <li><code>4.4.e</code>Policing, shaping</li>
+      <li><code>4.4.f</code>Congestion management and avoidance</li>
+      <li><code>4.4.g</code>HQoS</li>
+      <li><code>4.4.h</code>End-to-end Layer 3 QoS using MQC</li>
+    </ul>
+
+    <h3>4.5 Network services</h3>
+    <ul>
+      <li><code>4.5.a</code>First-Hop Redundancy Protocols
+        <ul>
+          <li>HSRP, VRRP</li>
+          <li>Redundancy using IPv6 RS/RA</li>
+        </ul>
+      </li>
+      <li><code>4.5.b</code>Time synchronization protocols
+        <ul>
+          <li>NTP as a client</li>
+          <li>PTP design considerations</li>
+        </ul>
+      </li>
+      <li><code>4.5.c</code>DHCP on Cisco devices
+        <ul>
+          <li>Client, server, relay</li>
+          <li>Options</li>
+          <li>SLAAC/DHCPv6 integration</li>
+          <li>Stateful, stateless DHCPv6</li>
+          <li>DHCPv6 Prefix Delegation</li>
+        </ul>
+      </li>
+      <li><code>4.5.d</code>IPv4 Network Address Translation
+        <ul>
+          <li>Static NAT, PAT</li>
+          <li>Dynamic NAT, PAT</li>
+          <li>Policy-based NAT, PAT</li>
+          <li>VRF-aware NAT, PAT</li>
+          <li>VRF-aware Software Infrastructure (VASI) NAT</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>4.6 Network optimization</h3>
+    <ul>
+      <li><code>4.6.a</code>IP SLA (ICMP, UDP, TCP probes)</li>
+      <li><code>4.6.b</code>Tracking objects and lists</li>
+      <li><code>4.6.c</code>Flexible NetFlow</li>
+    </ul>
+
+    <h3>4.7 Network operations</h3>
+    <ul>
+      <li><code>4.7.a</code>Traffic capture
+        <ul>
+          <li>SPAN, RSPAN, ERSPAN</li>
+          <li>Embedded packet capture</li>
+        </ul>
+      </li>
+      <li><code>4.7.b</code>Troubleshooting tools
+        <ul>
+          <li>Data path packet trace</li>
+          <li>Conditional debugger (debug platform condition)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>5.0 Infrastructure Automation and Programmability <span class="domain-weight">15%</span></h2>
+
+    <h3>5.1 Data encoding formats</h3>
+    <ul>
+      <li><code>5.1.a</code>JSON</li>
+      <li><code>5.1.b</code>XML</li>
+      <li><code>5.1.c</code>YAML</li>
+      <li><code>5.1.d</code>Jinja</li>
+    </ul>
+
+    <h3>5.2 Automation and scripting</h3>
+    <ul>
+      <li><code>5.2.a</code>EEM applets</li>
+      <li><code>5.2.b</code>Guest shell
+        <ul>
+          <li>Linux environment</li>
+          <li>CLI Python module</li>
+          <li>EEM Python module</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>5.3 Programmability</h3>
+    <ul>
+      <li><code>5.3.a</code>Interaction with vManage API
+        <ul>
+          <li>Python requests library and Postman</li>
+          <li>Monitoring endpoints</li>
+          <li>Configuration endpoints</li>
+        </ul>
+      </li>
+      <li><code>5.3.b</code>Interaction with Cisco DNA Center API using HTTP requests (GET, PUT, POST) via Python requests library and Postman</li>
+      <li><code>5.3.c</code>Deploy and verify model-driven telemetry
+        <ul>
+          <li>Configure on-change subscription using gRPC</li>
+        </ul>
+      </li>
+    </ul>
+
+    </div>
+
+    <p class="source-note">Source: Cisco Systems, Inc. — CCIE Enterprise Infrastructure v1.1 Exam Topics (&copy; 2023 Cisco Systems, Inc.; document marked Cisco Public). Reproduced here as a personal study reference; reflowed from the original PDF into a domain/sub-topic outline, with hierarchy corrected where the source line breaks split an item across lines.</p>
+
+    <p><a href="/information-security/">&larr; Back to Information Security</a></p>
+  </main>
+
+  <footer class="site">
+    <p>&copy; 2026 Ioannis Konstas &middot; <a href="https://github.com/ikonstas70">github.com/ikonstas70</a></p>
+  </footer>
+</div>
+</body>
+</html>
