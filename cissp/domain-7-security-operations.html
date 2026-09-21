@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://ikonstas70.github.io/information-security/cissp/domain-7-security-operations.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CISSP Domain 7: Security Operations — Review Notes</title>
+<meta name="description" content="CISSP Domain 7 review notes: investigations, logging and monitoring, incident management, and disaster recovery.">
+<meta name="author" content="Ioannis Alexander Konstas">
+<link rel="stylesheet" href="/information-security/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZK50T0JFT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-BZK50T0JFT");</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="/information-security/">Information Security<em>.</em></a>
+    <div class="tagline">CCIE Enterprise Infrastructure &middot; CISSP &middot; Study Notes &amp; Review</div>
+    <div class="rule"></div>
+  </header>
+
+  <main>
+    <span class="tag">CISSP</span>
+    <span class="tag">Domain 7 &middot; 13%</span>
+    <h1>Security Operations</h1>
+    <p class="meta">CISSP Domain Review &middot; Ioannis Alexander Konstas</p>
+
+    <p>The day-to-day running of the security function: watching for trouble, responding when it happens, keeping the lights on when things fail, and doing all of it in a way that holds up in court if it has to.</p>
+
+    <h2>Investigations and evidence</h2>
+    <ul>
+      <li><strong>Chain of custody</strong> &mdash; an unbroken, documented record of who handled evidence, when, and why; break it and the evidence may be inadmissible.</li>
+      <li><strong>Order of volatility</strong> &mdash; collect the most fragile evidence first: CPU registers/cache &rarr; RAM &rarr; network state &rarr; running processes &rarr; disk &rarr; backups/archives.</li>
+      <li><strong>Evidence types</strong> &mdash; real/direct, documentary (needs authentication), testimonial, and demonstrative (illustrates a point, e.g. a diagram).</li>
+      <li>Investigation categories: <strong>administrative</strong>, <strong>criminal</strong>, <strong>civil</strong>, and <strong>regulatory</strong> &mdash; each has a different burden of proof and different rules for evidence handling.</li>
+    </ul>
+
+    <h2>Logging and monitoring</h2>
+    <p><strong>SIEM</strong> aggregates and correlates logs from across the environment to surface events a single log source would miss. Key operational concepts: <strong>clock synchronization</strong> (NTP &mdash; without it, correlating events across systems is unreliable), <strong>log retention</strong> (driven by both investigative need and regulatory requirement), and <strong>UEBA</strong> (User and Entity Behavior Analytics &mdash; baselines normal behavior to flag anomalies, e.g. impossible-travel logins).</p>
+
+    <h2>Incident management lifecycle</h2>
+    <p>The standard six phases (NIST-aligned): <strong>Preparation</strong> (plans, tooling, training, before anything happens) &rarr; <strong>Detection</strong> (identify a possible incident) &rarr; <strong>Response/Containment</strong> (limit the damage &mdash; short-term isolate, long-term eradicate root cause) &rarr; <strong>Mitigation/Eradication</strong> (remove the threat entirely) &rarr; <strong>Reporting/Recovery</strong> (restore normal operations, verify) &rarr; <strong>Remediation/Lessons Learned</strong> (post-incident review, feed fixes back into the program). Note "detection" is distinct from "response" &mdash; a very common exam distractor pairs the wrong action to the wrong phase.</p>
+
+    <h2>Preventive, detective, and corrective controls</h2>
+    <p>Classify any control by when it acts: <strong>preventive</strong> (stops it &mdash; firewall rule, MFA), <strong>detective</strong> (notices it happened &mdash; IDS, audit log), <strong>corrective</strong> (fixes the damage after &mdash; restore from backup, patch), <strong>deterrent</strong> (discourages attempt &mdash; warning banner, visible camera), <strong>compensating</strong> (an alternative control when the primary one isn't feasible), and <strong>recovery</strong> (restores full capability after a major event, broader than corrective).</p>
+
+    <h2>Patch, vulnerability, and change management</h2>
+    <p>Vulnerability management is a continuous loop: scan &rarr; prioritize (severity <em>and</em> exploitability/exposure, not CVSS score alone) &rarr; remediate &rarr; verify. <strong>Change management</strong> requires a formal process &mdash; request, impact assessment, approval (change advisory board), testing, implementation, and a rollback plan &mdash; specifically so that "fixing" one thing doesn't silently break availability or introduce a new vulnerability elsewhere.</p>
+
+    <h2>Business continuity and disaster recovery operations</h2>
+    <p>Building on Domain 1's BIA/RTO/RPO: <strong>backup strategies</strong> &mdash; full, incremental (fast backup, slow restore, needs every increment since last full), differential (slower backup, faster restore, needs only last full + last differential). <strong>Alternate sites</strong>, in increasing cost and decreasing recovery time: <strong>cold site</strong> (space and power only) &rarr; <strong>warm site</strong> (partially equipped, hours to days) &rarr; <strong>hot site</strong> (fully mirrored, minutes) &rarr; <strong>mobile/cloud site</strong> (elastic, increasingly the default). A DR plan that has never been tested is a hypothesis, not a plan &mdash; test types range from a tabletop walkthrough (cheapest) to a full interruption test (most realistic, highest risk).</p>
+
+    <p><a href="/information-security/cissp/">&larr; Back to CISSP Domain Review</a></p>
+  </main>
+
+  <footer class="site">
+    <p>&copy; 2026 Ioannis Konstas &middot; <a href="https://github.com/ikonstas70">github.com/ikonstas70</a></p>
+  </footer>
+</div>
+</body>
+</html>

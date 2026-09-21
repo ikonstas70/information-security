@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://ikonstas70.github.io/information-security/cissp/domain-3-security-architecture-and-engineering.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CISSP Domain 3: Security Architecture and Engineering — Review Notes</title>
+<meta name="description" content="CISSP Domain 3 review notes: security models, evaluation criteria, TCB, cryptography fundamentals, and physical security.">
+<meta name="author" content="Ioannis Alexander Konstas">
+<link rel="stylesheet" href="/information-security/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZK50T0JFT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-BZK50T0JFT");</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="/information-security/">Information Security<em>.</em></a>
+    <div class="tagline">CCIE Enterprise Infrastructure &middot; CISSP &middot; Study Notes &amp; Review</div>
+    <div class="rule"></div>
+  </header>
+
+  <main>
+    <span class="tag">CISSP</span>
+    <span class="tag">Domain 3 &middot; 13%</span>
+    <h1>Security Architecture and Engineering</h1>
+    <p class="meta">CISSP Domain Review &middot; Ioannis Alexander Konstas</p>
+
+    <p>The theory-heaviest domain: formal security models, evaluation frameworks, how a trusted computing base is structured, cryptography, and physical security. The exam wants recognition of named models and what property each one actually enforces &mdash; not implementation detail.</p>
+
+    <h2>Security models</h2>
+    <ul>
+      <li><strong>Bell-LaPadula</strong> &mdash; confidentiality. "No read up, no write down" (Simple Security Property, *-Property). Prevents a low-clearance subject from reading high data, and a high-clearance subject from leaking data down.</li>
+      <li><strong>Biba</strong> &mdash; integrity, the mirror image. "No write up, no read down." Prevents a low-integrity subject from corrupting high-integrity data.</li>
+      <li><strong>Clark-Wilson</strong> &mdash; integrity via well-formed transactions and separation of duties; access mediated through Constrained/Unconstrained Data Items and Integrity Verification/Transformation Procedures.</li>
+      <li><strong>Brewer-Nash (Chinese Wall)</strong> &mdash; dynamically changes permissions based on prior access, to prevent conflict-of-interest exposure (e.g. a consultant who accessed Client A's data can no longer access competitor Client B's).</li>
+      <li><strong>Graham-Denning</strong> &mdash; formally defines how subjects/objects are created, deleted, and how rights are granted/transferred.</li>
+    </ul>
+
+    <h2>Evaluation criteria</h2>
+    <ul>
+      <li><strong>TCSEC (Orange Book)</strong> &mdash; legacy US DoD standard, ratings D (minimal) through A1 (verified design); introduced the term <strong>Trusted Computing Base (TCB)</strong>.</li>
+      <li><strong>Common Criteria (ISO/IEC 15408)</strong> &mdash; the modern international standard; a product's claims are stated in a <strong>Protection Profile</strong>, evaluated to an <strong>Evaluation Assurance Level (EAL1&ndash;EAL7)</strong>.</li>
+    </ul>
+
+    <h2>System architecture concepts</h2>
+    <ul>
+      <li><strong>TCB</strong> &mdash; the totality of hardware, firmware, and software that enforces the security policy.</li>
+      <li><strong>Reference monitor</strong> &mdash; the abstract concept of mediating every access between subject and object.</li>
+      <li><strong>Security kernel</strong> &mdash; the actual implementation of the reference monitor concept.</li>
+      <li><strong>Protection rings</strong> &mdash; Ring 0 (kernel, most privileged) through Ring 3 (user applications, least privileged) in the classic model.</li>
+      <li><strong>Process isolation, layering, abstraction, data hiding</strong> &mdash; the general OS design techniques that keep one process from corrupting another.</li>
+    </ul>
+
+    <h2>Cryptography fundamentals</h2>
+    <ul>
+      <li><strong>Symmetric</strong> &mdash; one shared key, fast, hard key distribution problem (AES is the standard; DES/3DES are legacy).</li>
+      <li><strong>Asymmetric</strong> &mdash; key pair (public/private), solves key distribution, much slower &mdash; typically used to exchange a symmetric session key (RSA, ECC).</li>
+      <li><strong>Hashing</strong> &mdash; one-way, fixed-length output, used for integrity verification, not confidentiality (SHA-2/SHA-3; MD5 and SHA-1 are broken/deprecated).</li>
+      <li><strong>Digital signature</strong> &mdash; hash the message, encrypt the hash with the sender's private key; verifier decrypts with the sender's public key and compares &mdash; gives integrity, authentication, and non-repudiation together.</li>
+      <li><strong>PKI</strong> &mdash; Certificate Authority (issues/signs certs), Registration Authority (verifies identity before issuance), certificate revocation via CRL or OCSP.</li>
+      <li><strong>Key management</strong> is usually the actual weak point on the exam's "what went wrong" scenarios &mdash; generation, distribution, storage, rotation, and destruction of keys, not the algorithm itself.</li>
+    </ul>
+    <p>Common cryptanalysis attack types to recognize by name: <strong>brute force</strong>, <strong>known-plaintext</strong>, <strong>chosen-plaintext</strong>, <strong>man-in-the-middle</strong>, and <strong>side-channel</strong> (timing, power analysis &mdash; attacking the implementation, not the math).</p>
+
+    <h2>Secure design principles</h2>
+    <p><strong>Defense in depth</strong> (layered, no single point of failure), <strong>least privilege</strong>, <strong>fail secure</strong> vs. <strong>fail open</strong> (know which one a given control should do &mdash; a door lock should fail secure, a fire exit should fail open), <strong>separation of duties</strong>, <strong>keep it simple</strong>, <strong>zero trust</strong> (never trust, always verify, regardless of network location), and <strong>security through obscurity is not a control</strong> &mdash; it can be a layer, never the layer.</p>
+
+    <h2>Physical security</h2>
+    <p>Site/facility design uses <strong>CPTED</strong> (Crime Prevention Through Environmental Design) principles &mdash; natural surveillance, access control, territorial reinforcement. Layered physical controls: perimeter (fencing, lighting) &rarr; building (locks, mantraps) &rarr; interior (badges, cameras) &rarr; asset (cable locks, safes). Environmental controls cover HVAC, fire suppression classes (know that water is wrong for electrical/Class C fires; clean agents or CO&#8322; are used in data centers), and power protection (UPS for short-term, generator for extended outage).</p>
+
+    <p><a href="/information-security/cissp/">&larr; Back to CISSP Domain Review</a></p>
+  </main>
+
+  <footer class="site">
+    <p>&copy; 2026 Ioannis Konstas &middot; <a href="https://github.com/ikonstas70">github.com/ikonstas70</a></p>
+  </footer>
+</div>
+</body>
+</html>

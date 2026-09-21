@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://ikonstas70.github.io/information-security/cissp/domain-2-asset-security.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CISSP Domain 2: Asset Security — Review Notes</title>
+<meta name="description" content="CISSP Domain 2 review notes: data classification, ownership roles, the data lifecycle, remanence and sanitization.">
+<meta name="author" content="Ioannis Alexander Konstas">
+<link rel="stylesheet" href="/information-security/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZK50T0JFT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-BZK50T0JFT");</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="/information-security/">Information Security<em>.</em></a>
+    <div class="tagline">CCIE Enterprise Infrastructure &middot; CISSP &middot; Study Notes &amp; Review</div>
+    <div class="rule"></div>
+  </header>
+
+  <main>
+    <span class="tag">CISSP</span>
+    <span class="tag">Domain 2 &middot; 10%</span>
+    <h1>Asset Security</h1>
+    <p class="meta">CISSP Domain Review &middot; Ioannis Alexander Konstas</p>
+
+    <p>The smallest domain by weight but the one that decides what a "1" and a "0" of the CIA triad actually apply <em>to</em>: classifying data, assigning who is accountable for it, and controlling it through its full lifecycle &mdash; including how it's destroyed.</p>
+
+    <h2>Classification</h2>
+    <p>Government/military model (ascending sensitivity): <strong>Unclassified &rarr; Confidential &rarr; Secret &rarr; Top Secret</strong>. Commercial model: <strong>Public &rarr; Internal &rarr; Confidential &rarr; Restricted</strong> (naming varies by org). Classification drives handling requirements &mdash; storage, transmission, marking, destruction &mdash; and should be reassessed periodically, since data can be declassified or reclassified over time.</p>
+
+    <h2>Data roles</h2>
+    <ul>
+      <li><strong>Owner</strong> &mdash; ultimate accountability, sets classification (usually a business executive, not IT).</li>
+      <li><strong>Custodian</strong> &mdash; implements the technical controls the owner requires (backups, access controls) &mdash; typically IT/security staff.</li>
+      <li><strong>Steward</strong> &mdash; manages data quality and context, common in data governance programs.</li>
+      <li><strong>Controller</strong> vs. <strong>Processor</strong> (GDPR terms) &mdash; the controller decides why/how data is processed; the processor acts on the controller's instructions.</li>
+      <li><strong>User/subject</strong> &mdash; consumes the data under the access rules the owner set.</li>
+    </ul>
+
+    <h2>Data states and protection</h2>
+    <ul>
+      <li><strong>At rest</strong> &mdash; stored (disk, backup). Protected primarily by encryption and access control.</li>
+      <li><strong>In transit</strong> &mdash; moving across a network. Protected by transport encryption (TLS, IPsec).</li>
+      <li><strong>In use</strong> &mdash; loaded in memory/being processed. Hardest to protect; addressed by techniques like memory encryption, secure enclaves, and homomorphic encryption at the research/emerging end.</li>
+    </ul>
+    <p>Complementary controls: <strong>DLP</strong> (Data Loss Prevention, detects/blocks exfiltration by content inspection), <strong>DRM</strong> (Digital/Information Rights Management, controls use after distribution), <strong>tokenization</strong> (replaces sensitive data with a non-sensitive surrogate) and <strong>masking</strong> (obscures data for non-production use, e.g. test environments).</p>
+
+    <h2>Data lifecycle</h2>
+    <p>Create &rarr; Store &rarr; Use &rarr; Share &rarr; Archive &rarr; Destroy. Retention policy should be driven by legal/regulatory requirement and business need, not "keep everything forever" &mdash; over-retention is itself a liability (bigger breach blast radius, more to produce in discovery).</p>
+
+    <h2>Data remanence and sanitization</h2>
+    <p>NIST SP 800-88 defines three levels, increasing in assurance:</p>
+    <ul>
+      <li><strong>Clear</strong> &mdash; logical technique (e.g. overwrite) protecting against simple, non-invasive recovery. Media is reusable.</li>
+      <li><strong>Purge</strong> &mdash; physical or logical technique (e.g. cryptographic erase, degaussing) rendering data recovery infeasible even with state-of-the-art lab techniques. Media may still be reusable.</li>
+      <li><strong>Destroy</strong> &mdash; physical destruction (shredding, incineration, disintegration). Media is not reusable. Required for the highest classification levels or when media can't be reliably purged (e.g. some flash media).</li>
+    </ul>
+    <p>Deletion alone (moving to a "recycle bin" or removing a file pointer) leaves the underlying data recoverable &mdash; this is <strong>data remanence</strong>, and it's the trap answer on exam questions that ask "how do I dispose of this drive."</p>
+
+    <h2>Baselines and scoping/tailoring</h2>
+    <p>A <strong>baseline</strong> is the minimum set of controls for a given classification/system type (e.g. NIST 800-53 control baselines). <strong>Scoping</strong> removes controls that don't apply to a given environment; <strong>tailoring</strong> adjusts a control (adding, removing, or modifying parameters) to fit the specific context &mdash; both are how a generic baseline becomes an actionable, organization-specific standard.</p>
+
+    <p><a href="/information-security/cissp/">&larr; Back to CISSP Domain Review</a></p>
+  </main>
+
+  <footer class="site">
+    <p>&copy; 2026 Ioannis Konstas &middot; <a href="https://github.com/ikonstas70">github.com/ikonstas70</a></p>
+  </footer>
+</div>
+</body>
+</html>

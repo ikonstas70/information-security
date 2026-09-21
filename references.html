@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://ikonstas70.github.io/information-security/references.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Related Standards &amp; Frameworks — Information Security</title>
+<meta name="description" content="NIST, DoD, and industry standards mapped to the CCIE Enterprise Infrastructure and CISSP study material, with links to primary sources.">
+<meta name="author" content="Ioannis Alexander Konstas">
+<link rel="stylesheet" href="/information-security/style.css">
+<style>
+  .ref-map { color: var(--accent-dim); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZK50T0JFT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-BZK50T0JFT");</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="/information-security/">Information Security<em>.</em></a>
+    <div class="tagline">CCIE Enterprise Infrastructure &middot; CISSP &middot; Study Notes &amp; Review</div>
+    <div class="rule"></div>
+  </header>
+
+  <main>
+    <span class="tag">Reference</span>
+    <h1>Related Standards &amp; Frameworks</h1>
+    <p class="meta">Reference &middot; Ioannis Alexander Konstas</p>
+
+    <p>The CCIE and CISSP material doesn't exist in a vacuum &mdash; most of it is a practitioner's-eye view of standards that government and industry already formalized. This page maps the ones most worth knowing by name to the domain or topic they back up, with a link to the primary source rather than a summary.</p>
+
+    <h2>Governance, risk, and the RMF</h2>
+    <ul>
+      <li><a href="https://csrc.nist.gov/pubs/sp/800/37/r2/final">NIST SP 800-37 Rev. 2</a> &mdash; the Risk Management Framework itself: categorize, select, implement, assess, authorize, monitor. <span class="ref-map">&rarr; CISSP Domain 1</span></li>
+      <li><a href="https://csrc.nist.gov/pubs/sp/800/30/r1/final">NIST SP 800-30 Rev. 1</a> &mdash; how to actually conduct a risk assessment; pairs with the SLE/ALE/ARO math. <span class="ref-map">&rarr; CISSP Domain 1</span></li>
+      <li><a href="https://csrc.nist.gov/pubs/fips/199/final">FIPS 199</a> &mdash; standardizes security categorization (low/moderate/high impact) that RMF categorization is built on. <span class="ref-map">&rarr; CISSP Domain 1</span></li>
+      <li><a href="https://csrc.nist.gov/pubs/fips/200/final">FIPS 200</a> &mdash; minimum security requirements that map to an SP 800-53 control baseline. <span class="ref-map">&rarr; CISSP Domain 1</span></li>
+      <li><a href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework (CSF)</a> &mdash; the widely adopted Identify/Protect/Detect/Respond/Recover structure for organizing a security program. <span class="ref-map">&rarr; CISSP Domain 1</span></li>
+    </ul>
+
+    <h2>Controls and secure architecture</h2>
+    <ul>
+      <li><a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final">NIST SP 800-53 Rev. 5</a> &mdash; the actual control catalog; what a "baseline" in Domain 2 concretely consists of. <span class="ref-map">&rarr; CISSP Domains 1&ndash;3</span></li>
+      <li><a href="https://www.commoncriteriaportal.org/">Common Criteria (ISO/IEC 15408)</a> &mdash; the evaluation standard behind Protection Profiles and EAL ratings. <span class="ref-map">&rarr; CISSP Domain 3</span></li>
+      <li><a href="https://csrc.nist.gov/pubs/sp/800/207/final">NIST SP 800-207</a> &mdash; Zero Trust Architecture, the formal version of "never trust, always verify." <span class="ref-map">&rarr; CISSP Domains 3&ndash;4</span></li>
+      <li><a href="https://csrc.nist.gov/pubs/sp/800/171/r3/final">NIST SP 800-171 Rev. 3</a> &mdash; protecting Controlled Unclassified Information on non-federal systems; the standard defense contractors are assessed against. <span class="ref-map">&rarr; CISSP Domains 1&ndash;3</span></li>
+    </ul>
+
+    <h2>Asset and data handling</h2>
+    <ul>
+      <li><a href="https://csrc.nist.gov/pubs/sp/800/88/r1/final">NIST SP 800-88 Rev. 1</a> &mdash; the clear/purge/destroy sanitization standard referenced directly in the domain notes. <span class="ref-map">&rarr; CISSP Domain 2</span></li>
+    </ul>
+
+    <h2>Identity and access</h2>
+    <ul>
+      <li><a href="https://csrc.nist.gov/pubs/sp/800/63/4/final">NIST SP 800-63-4</a> &mdash; Digital Identity Guidelines: identity proofing, authenticator assurance levels, and federation assurance levels behind any serious MFA/IAM design. <span class="ref-map">&rarr; CISSP Domain 5</span></li>
+    </ul>
+
+    <h2>Operations, monitoring, and incident response</h2>
+    <ul>
+      <li><a href="https://csrc.nist.gov/pubs/sp/800/61/r2/final">NIST SP 800-61 Rev. 2</a> &mdash; the Computer Security Incident Handling Guide the domain notes' incident lifecycle is aligned to. <span class="ref-map">&rarr; CISSP Domain 7</span></li>
+      <li><a href="https://csrc.nist.gov/pubs/sp/800/137/final">NIST SP 800-137</a> &mdash; Information Security Continuous Monitoring; the formal basis for "detective controls" as an ongoing program, not a one-time audit. <span class="ref-map">&rarr; CISSP Domain 7</span></li>
+    </ul>
+
+    <h2>DoD-specific</h2>
+    <p>For anything DoD-contract-specific &mdash; DoD Instructions/Directives (8500-series cybersecurity policy, 8140/8570 workforce qualification), CNSS policy and instructions, and the Committee on National Security Systems glossary &mdash; the authoritative, current source is the DoD Cyber Exchange rather than any static summary:</p>
+    <ul>
+      <li><a href="https://public.cyber.mil/">public.cyber.mil</a> &mdash; DoD Cyber Exchange, the public-facing index of current DoD cybersecurity policy, instructions, and STIGs.</li>
+    </ul>
+
+    <p><a href="/information-security/">&larr; Back to Information Security</a></p>
+  </main>
+
+  <footer class="site">
+    <p>&copy; 2026 Ioannis Konstas &middot; <a href="https://github.com/ikonstas70">github.com/ikonstas70</a></p>
+  </footer>
+</div>
+</body>
+</html>

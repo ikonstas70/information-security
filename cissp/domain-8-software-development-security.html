@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://ikonstas70.github.io/information-security/cissp/domain-8-software-development-security.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CISSP Domain 8: Software Development Security — Review Notes</title>
+<meta name="description" content="CISSP Domain 8 review notes: SDLC models, secure coding, the OWASP Top 10, and database and supply-chain security.">
+<meta name="author" content="Ioannis Alexander Konstas">
+<link rel="stylesheet" href="/information-security/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZK50T0JFT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-BZK50T0JFT");</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="/information-security/">Information Security<em>.</em></a>
+    <div class="tagline">CCIE Enterprise Infrastructure &middot; CISSP &middot; Study Notes &amp; Review</div>
+    <div class="rule"></div>
+  </header>
+
+  <main>
+    <span class="tag">CISSP</span>
+    <span class="tag">Domain 8 &middot; 10%</span>
+    <h1>Software Development Security</h1>
+    <p class="meta">CISSP Domain Review &middot; Ioannis Alexander Konstas</p>
+
+    <p>Security folded into how software gets built, not bolted on after &mdash; the process controls (SDLC, change management) and the technical patterns (secure coding, common vulnerability classes) that keep applications from becoming the weakest link.</p>
+
+    <h2>SDLC models</h2>
+    <ul>
+      <li><strong>Waterfall</strong> &mdash; sequential phases (requirements &rarr; design &rarr; implementation &rarr; verification &rarr; maintenance), each gated before the next starts. Predictable, rigid, security requirements defined upfront are hard to revise later.</li>
+      <li><strong>Agile/iterative</strong> &mdash; short cycles, continuous feedback; security has to be woven into each sprint rather than saved for a final gate.</li>
+      <li><strong>DevSecOps</strong> &mdash; security integrated directly into CI/CD (automated SAST/DAST/SCA in the pipeline, infrastructure as code scanned like application code) &mdash; "shift left," catching issues at commit time rather than in production.</li>
+      <li><strong>Maturity models</strong> &mdash; frameworks like the Software Assurance Maturity Model assess and improve an organization's secure-development practices over time, independent of which SDLC methodology is used.</li>
+    </ul>
+
+    <h2>Change and configuration management</h2>
+    <p>Same discipline as Domain 7, applied to code: version control, code review/approval before merge, and a documented, tested rollback path. <strong>Configuration management</strong> ensures deployed systems match an approved, known-good baseline &mdash; configuration drift is itself a vulnerability, since it means production no longer matches what was tested.</p>
+
+    <h2>Secure coding and common vulnerability classes</h2>
+    <p>The <strong>OWASP Top 10</strong> is the standard reference vocabulary for web application risk &mdash; know the categories and the root cause each represents, not a specific year's exact ranking:</p>
+    <ul>
+      <li><strong>Injection</strong> (SQL, command, LDAP) &mdash; untrusted input concatenated into a command/query instead of parameterized. Fix: parameterized queries/prepared statements, input validation.</li>
+      <li><strong>Broken access control</strong> &mdash; the application fails to enforce what an authenticated user should actually be allowed to do (e.g. IDOR &mdash; Insecure Direct Object Reference, changing an ID in a URL to access another user's data).</li>
+      <li><strong>Cryptographic failures</strong> &mdash; sensitive data transmitted or stored without adequate encryption, or using broken/outdated algorithms.</li>
+      <li><strong>Cross-Site Scripting (XSS)</strong> &mdash; untrusted input rendered back into a page without proper output encoding, executing attacker script in a victim's browser. Reflected, stored, and DOM-based variants.</li>
+      <li><strong>Security misconfiguration</strong> &mdash; default credentials, unnecessary features enabled, verbose error messages leaking internals.</li>
+      <li><strong>Vulnerable and outdated components</strong> &mdash; using libraries/frameworks with known CVEs; this is what SCA tooling targets directly.</li>
+      <li><strong>SSRF (Server-Side Request Forgery)</strong> &mdash; the application is tricked into making a request to an unintended destination (often internal infrastructure) on the attacker's behalf.</li>
+    </ul>
+    <p>General defensive principles: <strong>input validation</strong> (allow-list over deny-list), <strong>output encoding</strong> (context-appropriate &mdash; HTML vs. URL vs. JS encoding aren't interchangeable), <strong>parameterization</strong>, and <strong>least privilege</strong> for the application's own service accounts and database permissions.</p>
+
+    <h2>Database and data-layer security</h2>
+    <p><strong>Normalization</strong> reduces redundancy and improves integrity, but can be deliberately traded off (<strong>denormalization</strong>) for performance. <strong>Aggregation</strong> (combining non-sensitive data points to infer something sensitive) and <strong>inference</strong> (deducing restricted information from accessible data) are database-specific confidentiality risks distinct from a direct access-control failure &mdash; the individual queries are each authorized, but the combination isn't supposed to be possible.</p>
+
+    <h2>Third-party and open-source software risk</h2>
+    <p>Modern applications are assembled more than written &mdash; a <strong>Software Bill of Materials (SBOM)</strong> inventories every component and its version, making it possible to answer "are we affected by this new CVE" in minutes instead of weeks. Supply-chain risk extends to build pipeline integrity (a compromised CI/CD system can inject malicious code into an otherwise-clean codebase) and vendor due diligence for any commercial dependency.</p>
+
+    <p><a href="/information-security/cissp/">&larr; Back to CISSP Domain Review</a></p>
+  </main>
+
+  <footer class="site">
+    <p>&copy; 2026 Ioannis Konstas &middot; <a href="https://github.com/ikonstas70">github.com/ikonstas70</a></p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="canonical" href="https://ikonstas70.github.io/information-security/cissp/domain-1-security-and-risk-management.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CISSP Domain 1: Security and Risk Management — Review Notes</title>
+<meta name="description" content="CISSP Domain 1 review notes: CIA triad, governance, risk management, BCP/DR, and the ISC2 Code of Ethics.">
+<meta name="author" content="Ioannis Alexander Konstas">
+<link rel="stylesheet" href="/information-security/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZK50T0JFT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-BZK50T0JFT");</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="/information-security/">Information Security<em>.</em></a>
+    <div class="tagline">CCIE Enterprise Infrastructure &middot; CISSP &middot; Study Notes &amp; Review</div>
+    <div class="rule"></div>
+  </header>
+
+  <main>
+    <span class="tag">CISSP</span>
+    <span class="tag">Domain 1 &middot; 16%</span>
+    <h1>Security and Risk Management</h1>
+    <p class="meta">CISSP Domain Review &middot; Ioannis Alexander Konstas</p>
+
+    <p>The heaviest-weighted domain, and the one everything else hangs off: what security is trying to protect, how an organization decides how much risk it will tolerate, and the governance structure that turns that decision into enforceable policy.</p>
+
+    <h2>CIA triad and its inverse</h2>
+    <ul>
+      <li><strong>Confidentiality</strong> &mdash; only authorized parties see the data. Broken by <em>disclosure</em>.</li>
+      <li><strong>Integrity</strong> &mdash; data and systems are accurate and unaltered except by authorized action. Broken by <em>alteration</em>.</li>
+      <li><strong>Availability</strong> &mdash; authorized parties can access data and systems when needed. Broken by <em>destruction</em> (or denial).</li>
+    </ul>
+    <p>ISC2 also frames the opposite as <strong>DAD</strong> &mdash; Disclosure, Alteration, Destruction &mdash; useful for reasoning backward from an incident to which triad property failed. Related properties worth keeping straight: <strong>authenticity</strong> (the data/subject is what it claims to be), <strong>non-repudiation</strong> (a party can't credibly deny an action), and <strong>accountability</strong> (actions trace to an identity).</p>
+
+    <h2>Governance structure</h2>
+    <p>Top-down, decreasing in generality and increasing in specificity:</p>
+    <ul>
+      <li><strong>Policy</strong> &mdash; high-level management intent, mandatory, technology-agnostic.</li>
+      <li><strong>Standard</strong> &mdash; mandatory, specific requirements (e.g. "AES-256 for data at rest").</li>
+      <li><strong>Guideline</strong> &mdash; recommended, discretionary best practice.</li>
+      <li><strong>Procedure</strong> &mdash; mandatory, step-by-step instructions to meet a standard.</li>
+      <li><strong>Baseline</strong> &mdash; a minimum level of security a system must meet.</li>
+    </ul>
+    <p>Security should report high enough in the org chart to be independent of IT operations &mdash; a recurring exam theme is spotting conflict-of-interest reporting lines.</p>
+
+    <h2>Risk management</h2>
+    <p>The core loop: identify assets and threats, analyze likelihood and impact, decide a treatment, monitor.</p>
+    <ul>
+      <li><strong>Risk treatments</strong> &mdash; mitigate (reduce), transfer (insurance, contract), avoid (stop the activity), accept (formally, with sign-off).</li>
+      <li><strong>Qualitative analysis</strong> &mdash; relative ranking (low/medium/high), fast, subjective, good for a first pass.</li>
+      <li><strong>Quantitative analysis</strong> &mdash; assigns dollar values:
+        <ul>
+          <li><code>SLE</code> (Single Loss Expectancy) = Asset Value &times; Exposure Factor</li>
+          <li><code>ALE</code> (Annualized Loss Expectancy) = SLE &times; <code>ARO</code> (Annualized Rate of Occurrence)</li>
+          <li>A control is worth buying if its annual cost is less than the ALE it removes.</li>
+        </ul>
+      </li>
+      <li><strong>Residual risk</strong> &mdash; what's left after controls are applied; <strong>total risk</strong> is what exists with no controls at all.</li>
+    </ul>
+
+    <h2>Business continuity and disaster recovery</h2>
+    <ul>
+      <li><strong>BIA</strong> (Business Impact Analysis) &mdash; identifies critical functions and the cost of their disruption; the foundation everything else is built on.</li>
+      <li><strong>MTD</strong> (Maximum Tolerable Downtime) &mdash; the longest a function can be down before the business doesn't survive it.</li>
+      <li><strong>RTO</strong> (Recovery Time Objective) &mdash; target time to restore a function; must be &le; MTD.</li>
+      <li><strong>RPO</strong> (Recovery Point Objective) &mdash; maximum acceptable data loss, measured in time (drives backup frequency).</li>
+      <li><strong>WRT</strong> (Work Recovery Time) &mdash; time to get the recovered system back to full production use, after RTO.</li>
+    </ul>
+
+    <h2>Legal, regulatory, and compliance landscape</h2>
+    <p>Know the shape, not just the names: <strong>GDPR</strong> (EU, personal data, extraterritorial reach), <strong>HIPAA</strong> (US healthcare PHI), <strong>PCI DSS</strong> (contractual, not law &mdash; payment card data), <strong>SOX</strong> (US public company financial reporting controls), <strong>GLBA</strong> (US financial institutions). Distinguish <strong>civil law</strong>, <strong>criminal law</strong>, <strong>administrative/regulatory law</strong>, and <strong>customary law</strong> as legal system types, and <strong>due care</strong> (the standard a reasonable person would apply) from <strong>due diligence</strong> (the research done before acting).</p>
+
+    <h2>Threat modeling and supply chain</h2>
+    <p><strong>STRIDE</strong> (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege) is the standard exam-recognized threat modeling taxonomy. Third-party/supply chain risk covers vendor due diligence, SLAs, right-to-audit clauses, and the fact that your risk posture is only as strong as your weakest supplier.</p>
+
+    <h2>Personnel security and the Code of Ethics</h2>
+    <p>Hiring controls (background checks, NDAs), termination procedures, <strong>separation of duties</strong> and <strong>mandatory vacation</strong> as fraud-detection controls, and <strong>least privilege</strong> vs. <strong>need-to-know</strong> (the latter is more granular &mdash; you can have the clearance level and still not need the specific data). The <strong>(ISC)&sup2; Code of Ethics</strong> has four canons, in priority order: protect society, the common good, necessary public trust and confidence, and the infrastructure; act honorably, honestly, justly, responsibly, and legally; provide diligent and competent service to principals; advance and protect the profession.</p>
+
+    <p><a href="/information-security/cissp/">&larr; Back to CISSP Domain Review</a></p>
+  </main>
+
+  <footer class="site">
+    <p>&copy; 2026 Ioannis Konstas &middot; <a href="https://github.com/ikonstas70">github.com/ikonstas70</a></p>
+  </footer>
+</div>
+</body>
+</html>
